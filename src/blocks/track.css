@@ -1,0 +1,60 @@
+.track__item {
+  padding: 16px 12px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+}
+
+.track__item:hover {
+  cursor: pointer;
+  background: #f2f2f2;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.track__order-number {
+  text-align: right;
+  margin-right: 20px;
+  font-weight: 700;
+  color: #adadad;
+  font-size: 14px;
+  flex-shrink: 0;
+  flex-basis: 12px;
+}
+
+.track__info {
+  display: flex;
+  align-items: center;
+}
+
+.track__image {
+  background-image: url("https://i.scdn.co/image/ab67616d00004851bd2feaef7519dbfbc402201e");
+  width: 40px;
+  min-width: 40px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 16px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.track__summary {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.track__artist {
+  color: #64485c;
+}
+
+.track__title {
+  margin-bottom: 3.2px;
+  font-weight: 700;
+  color: #501b1d;
+}
+
+.track__separator {
+  display: none;
+}
