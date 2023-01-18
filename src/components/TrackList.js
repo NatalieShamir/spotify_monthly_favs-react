@@ -3,11 +3,10 @@ import Track from "./Track";
 
 export default function TrackList(props) {
 
+  const trackComponents = props.tracks.map((track) => <Track {...track} key={track.id} />);
   return (
     <ul className="tracks__list">
-      {React.Children.toArray(
-        props.tracks.map((track) => <Track {...track} key={track.id} />)
-      )}
+      {React.Children.toArray(trackComponents)}
     </ul>
   );
 }
