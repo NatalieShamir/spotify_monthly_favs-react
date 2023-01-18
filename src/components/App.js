@@ -1,6 +1,6 @@
+import React, { useEffect } from 'react';
 import Main from "./Main";
 import { api } from "../utils/Api";
-import { useState } from 'react';
 
 export default function App() {
   const CLIENT_ID = "+++++++++++++++++++++++++++++"
