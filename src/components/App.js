@@ -43,11 +43,11 @@ export default function App() {
   return (
     <div className="page">
       <header className="header">
-        <h1>Spotify Monthly Favorites</h1>
+        <h1 className="header__title">Spotify Monthly Favorites</h1>
         {!token ?
-          <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}><button>Login
+          <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}><button className="header__button">Login
             to Spotify</button></a>
-          : <button onClick={logout}>Logout</button>}
+          : <button className="header__button" onClick={logout}>Logout</button>}
       </header>
       <Main tracks={tracks} />
     </div>
