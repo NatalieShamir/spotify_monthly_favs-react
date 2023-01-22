@@ -14,20 +14,20 @@ export default function App() {
 
   useEffect(() => {
     const hash = window.location.hash
-    let token = window.localStorage.getItem("token")
+    let token = window.localStorage.getItem("spotify-monthly-favorites-token")
 
     if (!token && hash) {
       token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
 
       window.location.hash = ""
-      window.localStorage.setItem("token", token)
+      window.localStorage.setItem("spotify-monthly-favorites-token", token)
       setToken(token)
     }
   }, [])
 
   const logout = () => {
     setToken("")
-    window.localStorage.removeItem("token")
+    window.localStorage.removeItem("spotify-monthly-favorites-token")
   }
 
   useEffect(() => {
