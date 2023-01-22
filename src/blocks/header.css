@@ -1,3 +1,11 @@
+.header {
+  margin: 70px 0 0 44px;
+}
+
+.header__title {
+  margin: 0;
+}
+
 .header__button {
   background-color: #20639b;
   color: #fff;
