@@ -24,3 +24,15 @@
 .header__button:hover {
   background-color: #173f5f;
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    margin-left: 0;
+  }
+  .header__title {
+    text-align: center;
+  }
+  .header__button {
+    margin: 16px 63px;
+  }
+}
