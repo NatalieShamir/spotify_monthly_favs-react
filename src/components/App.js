@@ -25,6 +25,11 @@ export default function App() {
     }
   }, [])
 
+  const logout = () => {
+    setToken("")
+    window.localStorage.removeItem("token")
+  }
+
   useEffect(() => {
     api
       .getTrackList()
@@ -39,8 +44,10 @@ export default function App() {
     <div className="page">
       <header className="header">
         <h1>Spotify Monthly Favorites</h1>
-        <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-          to Spotify</a>
+        {!token ?
+          <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+            to Spotify</a>
+          : <button onClick={logout}>Logout</button>}
       </header>
       <Main tracks={tracks} />
     </div>
