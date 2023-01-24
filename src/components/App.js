@@ -1,34 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Main from "./Main";
 import { api } from "../utils/Api";
+import Login from "./Login";
 
 export default function App() {
-  const CLIENT_ID = "fd4f7c5a262e4313931a6038a17af7bc"
-  const REDIRECT_URI = "http://localhost:3000"
-  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-  const RESPONSE_TYPE = "token"
-
   const [token, setToken] = useState("");
-
-  const [tracks, setTracks] = React.useState([]);
-
-  useEffect(() => {
-    const hash = window.location.hash
-    let token = window.localStorage.getItem("spotify-monthly-favorites-token")
-
-    if (!token && hash) {
-      token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
-
-      window.location.hash = ""
-      window.localStorage.setItem("spotify-monthly-favorites-token", token)
-      setToken(token)
-    }
-  }, [])
-
-  const logout = () => {
-    setToken("")
-    window.localStorage.removeItem("spotify-monthly-favorites-token")
-  }
+  const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
     api
@@ -42,13 +19,7 @@ export default function App() {
 
   return (
     <div className="page">
-      <header className="header">
-        <h1 className="header__title">Spotify Monthly Favorites</h1>
-        {!token ?
-          <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}><button className="header__button">Login
-            to Spotify</button></a>
-          : <button className="header__button" onClick={logout}>Logout</button>}
-      </header>
+      <Login token={token} setToken={setToken} />
       <Main tracks={tracks} />
     </div>
   );
