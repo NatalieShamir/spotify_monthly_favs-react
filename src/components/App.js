@@ -22,10 +22,10 @@ export default function App() {
     <div className="page">
       <Switch>
         <Route exact path="/">
-          <Login token={token} setToken={setToken} />
+          <Login />
         </Route>
         <Route path="/track-list">
-          <TrackList tracks={tracks} />
+          <TrackList tracks={tracks} setToken={setToken} />
         </Route>
       </Switch>
     </div>
