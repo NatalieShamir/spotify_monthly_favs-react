@@ -25,7 +25,7 @@ export default function App() {
           <Login />
         </Route>
         <Route path="/track-list">
-          <TrackList tracks={tracks} setToken={setToken} />
+          <TrackList />
         </Route>
       </Switch>
     </div>
