@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Track from "./Track";
+import { api } from "../utils/Api";
 
-export default function TrackList({ setToken, tracks }) {
+export default function TrackList() {
+  const [token, setToken] = useState("");
+  const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
     const hash = window.location.hash
@@ -15,6 +18,16 @@ export default function TrackList({ setToken, tracks }) {
       setToken(token);
     }
   }, []);
+
+  useEffect(() => {
+    api
+      .getTrackList()
+      .then((res) => {
+        setTracks(res);
+      })
+      .catch(console.log);
+  }, []);
+
 
   const trackComponents = tracks.map((track) => <Track {...track} key={track.id} />);
 
