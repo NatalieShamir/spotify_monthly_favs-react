@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Main from "./Main";
+import { Route, Switch } from "react-router-dom";
 import { api } from "../utils/Api";
 import Login from "./Login";
+import TrackList from "./TrackList";
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -19,8 +20,14 @@ export default function App() {
 
   return (
     <div className="page">
-      <Login token={token} setToken={setToken} />
-      <Main tracks={tracks} />
+      <Switch>
+        <Route exact path="/">
+          <Login token={token} setToken={setToken} />
+        </Route>
+        <Route path="/track-list">
+          <TrackList tracks={tracks} />
+        </Route>
+      </Switch>
     </div>
   );
 }
